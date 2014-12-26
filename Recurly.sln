@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurly", "Recurly\Recurly.csproj", "{AB9C7D86-FB9B-49DC-9A7A-63A4BB49E131}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBench", "TestBench\TestBench.csproj", "{53B0BE31-F239-4663-8508-0DE249714BC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recurly.Test", "Test\Recurly.Test.csproj", "{F666F6C4-8757-4E96-A464-87CA58BFC13C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB9C7D86-FB9B-49DC-9A7A-63A4BB49E131}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB9C7D86-FB9B-49DC-9A7A-63A4BB49E131}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB9C7D86-FB9B-49DC-9A7A-63A4BB49E131}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB9C7D86-FB9B-49DC-9A7A-63A4BB49E131}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B0BE31-F239-4663-8508-0DE249714BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B0BE31-F239-4663-8508-0DE249714BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B0BE31-F239-4663-8508-0DE249714BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B0BE31-F239-4663-8508-0DE249714BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F666F6C4-8757-4E96-A464-87CA58BFC13C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F666F6C4-8757-4E96-A464-87CA58BFC13C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F666F6C4-8757-4E96-A464-87CA58BFC13C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F666F6C4-8757-4E96-A464-87CA58BFC13C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
