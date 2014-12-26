@@ -1,6 +1,6 @@
 Recurly .NET
 =======
-An improved .NET client library based off the official client library. 
+An improved .NET client library based off the [official client library](https://github.com/recurly/recurly-client-net "A .NET API wrapper for Recurly."). 
 
 As much as possible of the official library was retained (tests, object property names, configuration).
 
