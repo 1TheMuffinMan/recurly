@@ -4,7 +4,7 @@ An improved .NET client library based off the [official client library](https://
 
 As much as possible of the official library was retained (tests, object property names, configuration).
 
-Design improvements over the official Recurly .NET client library
+Design improvements over the official Recurly client library
 -------------------
  - All API requests are handled through a single `RecurlyClient` class rather than through each individiaul API object. This makes it possible to hide the client away in a service layer so that you can keep control centralized and seperate concerns.
  - All publicly exposed objects are prefixed with "Recurly" in an effort to prevent namespace prefixing for your existing classes.
