@@ -1,6 +1,5 @@
 Recurly .NET
 =======
-
 An improved .NET client library based off the official client library. 
 
 As much as possible of the official library was retained (tests, object property names, configuration).
@@ -16,7 +15,7 @@ Design improvements over the official Recurly .NET client library
  - Exposes async variations of most objects via the Task API.
 
 Configuration
-=============
+-------------
 
 Coming soon.
 
