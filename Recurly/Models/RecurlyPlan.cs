@@ -36,21 +36,26 @@ namespace Recurly
         [XmlElement("cancel_url")]
         public string CancelUrl { get; set; }
 
-        [XmlIgnore]
         [XmlElement("display_donation_amounts")]
         public bool? DisplayDonationAmounts { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DisplayDonationAmountsSpecified { get { return DisplayDonationAmounts.HasValue; } }
 
-        [XmlIgnore]
+
         [XmlElement("display_quantity")]
         public bool? DisplayQuantity { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DisplayQuantitySpecified { get { return DisplayQuantity.HasValue; } }
 
-        [XmlIgnore]
         [XmlElement("display_phone_number")]
         public bool? DisplayPhoneNumber { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool DisplayPhoneNumberSpecified { get { return DisplayPhoneNumber.HasValue; } }
 
-        [XmlIgnore]
         [XmlElement("bypass_hosted_confirmation")]
         public bool? BypassHostedConfirmation { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool BypassHostedConfirmationSpecified { get { return BypassHostedConfirmation.HasValue; } }
 
         [XmlElement("unit_name")]
         public string UnitName { get; set; }
@@ -76,9 +81,10 @@ namespace Recurly
         [XmlIgnore]
         public DateTime CreatedAt { get; set; }
 
-        [XmlIgnore]
         [XmlElement("total_billing_cycles")]
         public int? TotalBillingCycles { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool TotalBillingCyclesSpecified { get { return TotalBillingCycles.HasValue; } }
 
         [XmlElement("tax_exempt")]
         public bool? TaxExempt { get; set; }

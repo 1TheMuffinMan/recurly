@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Recurly.Test
 {
@@ -126,16 +127,20 @@ namespace Recurly.Test
             if (!disposing) return;
             if (!PlansToDeactivateOnDispose.Any()) return;
 
+            var planTasks = new List<Task>();
+
             foreach (var plan in PlansToDeactivateOnDispose)
             {
                 try
                 {
-                  //  plan.Deactivate();
+                   planTasks.Add(Client.DeactivatePlanAsync(plan.PlanCode));
                 }
                 catch (RecurlyException)
                 {
                 }
             }
+
+            Task.WaitAll(planTasks.ToArray());
         }
     }
 }

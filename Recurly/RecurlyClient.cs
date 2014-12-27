@@ -1,23 +1,7 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Xml;
-using System.Xml.Linq;
-using System.Xml.Schema;
-using System.Xml.Serialization;
-using System.Xml.XPath;
-using Recurly.Configuration;
+﻿using Recurly.Configuration;
 using RestSharp;
-using RestSharp.Contrib;
-using RestSharp.Deserializers;
-using RestSharp.Serializers;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Recurly
 {
@@ -104,6 +88,7 @@ namespace Recurly
                     throw new RecurlyInvalidCredentialsException(errors);
 
                 case HttpStatusCode.PreconditionFailed:
+                case HttpStatusCode.BadRequest:
                     errors = Error.ReadResponseAndParseErrors(response);
                     throw new RecurlyValidationException(errors);
 
