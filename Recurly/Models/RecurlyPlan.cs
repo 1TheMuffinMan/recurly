@@ -1,48 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 using RestSharp.Deserializers;
+using RestSharp.Serializers;
 
 namespace Recurly
 {
+    [XmlRoot("plan")]
     [DeserializeAs(Name = "plan")]
     public class RecurlyPlan
     {
         public enum IntervalUnit
         {
+            [XmlEnum("days")]
             Days,
+            [XmlEnum("months")]
             Months
         }
 
+        [XmlElement("plan_code")]
         public string PlanCode { get; set; }
+
+        [XmlElement("name")]
         public string Name { get; set; }
+
+        [XmlElement("description")]
         public string Description { get; set; }
+
+        [XmlElement("success_url")]
         public string SuccessUrl { get; set; }
+
+        [XmlElement("cancel_url")]
         public string CancelUrl { get; set; }
 
+        [XmlIgnore]
+        [XmlElement("display_donation_amounts")]
         public bool? DisplayDonationAmounts { get; set; }
+
+        [XmlIgnore]
+        [XmlElement("display_quantity")]
         public bool? DisplayQuantity { get; set; }
+
+        [XmlIgnore]
+        [XmlElement("display_phone_number")]
         public bool? DisplayPhoneNumber { get; set; }
+
+        [XmlIgnore]
+        [XmlElement("bypass_hosted_confirmation")]
         public bool? BypassHostedConfirmation { get; set; }
 
+        [XmlElement("unit_name")]
         public string UnitName { get; set; }
+
+        [XmlElement("payment_page_tos_link")]
         public string PaymentPageTOSLink { get; set; }
 
+        [XmlElement("plan_interval_length")]
         public int PlanIntervalLength { get; set; }
+
+        [XmlElement("plan_interval_unit")]
         public IntervalUnit PlanIntervalUnit { get; set; }
 
+        [XmlElement("trial_interval_length")]
         public int TrialIntervalLength { get; set; }
+
+        [XmlElement("trial_interval_unit")]
         public IntervalUnit TrialIntervalUnit { get; set; }
 
+        [XmlElement("accounting_code")]
         public string AccountingCode { get; set; }
 
-        public DateTime CreatedAt { get; private set; }
+        [XmlIgnore]
+        public DateTime CreatedAt { get; set; }
 
+        [XmlIgnore]
+        [XmlElement("total_billing_cycles")]
         public int? TotalBillingCycles { get; set; }
 
+        [XmlElement("tax_exempt")]
         public bool? TaxExempt { get; set; }
 
+        [XmlElement("tax_code")]
         public string TaxCode { get; set; }
 
         //private AddOnList _addOns;
@@ -60,32 +101,33 @@ namespace Recurly
         //    }
         //}
 
-        private Dictionary<string, int> _unitAmountInCents;
         /// <summary>
-        /// A dictionary of currencies and values for the subscription amount
+        /// Currencies and values for the subscription amount
         /// </summary>
-        public Dictionary<string, int> UnitAmountInCents
-        {
-            get { return _unitAmountInCents ?? (_unitAmountInCents = new Dictionary<string, int>()); }
-        }
-
-        private Dictionary<string, int> _setupFeeInCents;
+        [XmlElement("unit_amount_in_cents")]
+        public RecurlyCurrency UnitAmountInCents { get; set; }
+        
         /// <summary>
-        /// A dictionary of currency and values for the setup fee
+        /// Currencies and values for the setup fee
         /// </summary>
-        public Dictionary<string, int> SetupFeeInCents
-        {
-            get { return _setupFeeInCents ?? (_setupFeeInCents = new Dictionary<string, int>()); }
-        }
+        [XmlElement("setup_fee_in_cents", IsNullable = false)]
+        public RecurlyCurrency SetupFeeInCents { get; set; }
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SetupFeeInCentsSpecified { get { return SetupFeeInCents.AnySpecified; } }
 
         internal const string UrlPrefix = "/plans/";
 
-        public RecurlyPlan() { }
-
-        public RecurlyPlan(string planCode, string name)
+        public RecurlyPlan(string planCode, string name) : this()
         {
             PlanCode = planCode;
             Name = name;
+        }
+
+        public RecurlyPlan()
+        {
+            SetupFeeInCents = new RecurlyCurrency();
+            UnitAmountInCents = new RecurlyCurrency();
+            PlanIntervalLength = 1;
         }
     }
 }
